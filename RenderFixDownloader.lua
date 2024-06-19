@@ -11,11 +11,11 @@ game.GetService(game, 'StarterGui'):SetCore('SendNotification', ({
     Duration = 7
 }))
 if isfolder('vape') then
-    writefile("GuiLibrary.lua", game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/GuiLibrary.lua'))
-    writefile("MainScript.lua", game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/MainScript.lua'))
-    writefile('Universal.lua', game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/Universal.lua'))
+    writefile("vape/GuiLibrary.lua", game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/GuiLibrary.lua'))
+    writefile("vape/MainScript.lua", game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/MainScript.lua'))
+    writefile('vape/Universal.lua', game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/Universal.lua'))
     if isfolder('vape/CustomModules') then
-        writefile('6872274481.lua', game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/6872274481.lua'))
+        writefile('vape/CustomModules/6872274481.lua', game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/6872274481.lua'))
     end
 else
     game.GetService(game, 'StarterGui'):SetCore('SendNotification', ({
