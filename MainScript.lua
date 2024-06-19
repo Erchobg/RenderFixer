@@ -1586,7 +1586,7 @@ local teleportConnection = playersService.LocalPlayer.OnTeleport:Connect(functio
             end)
             end
 
-            if isfile and not isfile('vape/NewMainScript.lua') then return lplr:Kick(lplr, 'install render first :skul:') end
+            if isfile and not isfile('vape/NewMainScript.lua') then return lplr:Kick('install render first :skul:') end
             return loadstring(readfile('vape/NewMainScript.lua'))()
 		]]
 		local script = [[
