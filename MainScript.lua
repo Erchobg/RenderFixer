@@ -1651,6 +1651,15 @@ GuiLibrary.SelfDestruct = function()
 	pcall(function() game:GetService("RunService"):SetRobloxGuiFocused(false) end)
 end
 
+GuiLibrary.Restart = function()
+	GuiLibrary.SelfDestruct()
+	local vapePrivateCheck = shared.VapePrivate
+	shared.VapeSwitchServers = true
+	shared.VapeOpenGui = true
+	shared.VapePrivate = vapePrivateCheck
+	loadstring(vapeGithubRequest("NewMainScript.lua"))()
+end
+
 local performance = {}
 performance = GeneralSettings.CreateToggle({
 	Name = "Performance Mode", 
@@ -1742,6 +1751,11 @@ GUISettings.CreateButton2({
 GeneralSettings.CreateButton2({
 	Name = "UNINJECT",
 	Function = GuiLibrary.SelfDestruct
+})
+
+GeneralSettings.CreateButton2({
+	Name = "Restart",
+	Function = GuiLibrary.Restart
 })
 
 local function customload(data, file)
