@@ -860,7 +860,7 @@ if shared.VapeExecuted then
 		    end
 		    GuiLibrary.ObjectsThatCanBeSaved[objname] = nil
         else
-            warn("Unknown object tried to get deleted: "..objname)
+            --warn("Unknown object tried to get deleted: "..objname)
         end
 	end
 
