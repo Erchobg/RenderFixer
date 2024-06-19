@@ -1481,7 +1481,8 @@ if shared.VapeExecuted then
 					buttontext.AutoButtonColor = false
 					buttontext.BackgroundTransparency = 1
 					buttontext.Name = "ButtonText"
-					buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+					--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+					buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 					buttontext.Name = argstable["Name"]
 					buttontext.LayoutOrder = amount
 					buttontext.Size = UDim2.new(1, 0, 0, 30)
@@ -1591,6 +1592,7 @@ if shared.VapeExecuted then
 					text1.Font = Enum.Font.Arial
 					text1.TextXAlignment = Enum.TextXAlignment.Left
 					text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+					text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 					text1.Size = UDim2.new(1, 0, 0, 25)
 					text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 					text1.Position = UDim2.new(0, 0, 0, 4)
@@ -1950,7 +1952,8 @@ if shared.VapeExecuted then
 				local text1 = Instance.new("TextLabel")
 				text1.Font = Enum.Font.Arial
 				text1.TextXAlignment = Enum.TextXAlignment.Left
-				text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..text
+				--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..text
+				text1.Text = text
 				text1.Size = UDim2.new(1, 0, 0, 27)
 				text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 				text1.Position = UDim2.new(0, 0, 0, 4)
@@ -2024,7 +2027,8 @@ if shared.VapeExecuted then
 			local text1 = Instance.new("TextLabel")
 			text1.Font = Enum.Font.Arial
 			text1.TextXAlignment = Enum.TextXAlignment.Left
-			text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..name
+			--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..name
+			text1.Text = name
 			text1.Size = UDim2.new(1, 0, 0, 25)
 			text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 			text1.Position = UDim2.new(0, 0, 0, 4)
@@ -2248,7 +2252,8 @@ if shared.VapeExecuted then
 			buttontext.AutoButtonColor = false
 			buttontext.BackgroundTransparency = 1
 			buttontext.Name = "ButtonText"
-			buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			buttontext.Name = argstable["Name"]
 			buttontext.LayoutOrder = amount
 			buttontext.Size = UDim2.new(1, 0, 0, 30)
@@ -2597,7 +2602,8 @@ if shared.VapeExecuted then
 			local text1 = Instance.new("TextLabel")
 			text1.Font = Enum.Font.Arial
 			text1.TextXAlignment = Enum.TextXAlignment.Left
-			text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			text1.Size = UDim2.new(1, 0, 0, 25)
 			text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 			text1.Position = UDim2.new(0, 0, 0, 4)
@@ -3236,7 +3242,8 @@ if shared.VapeExecuted then
 			drop1.TextSize = 14
 			drop1.TextXAlignment = Enum.TextXAlignment.Left
 			drop1.TextColor3 = Color3.fromRGB(160, 160, 160)
-			drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
+			--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
+			drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
 			drop1.TextTruncate = Enum.TextTruncate.AtEnd
 			drop1.Font = Enum.Font.Arial
 			local expandbutton2 = Instance.new("ImageLabel")
@@ -3332,7 +3339,8 @@ if shared.VapeExecuted then
 				dropGuiLibrary["List"] = val
 				if not table.find(list, dropGuiLibrary["Value"]) then
 					dropGuiLibrary["Value"] = list[1]
-					drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
+					--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
+					drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
 					dropframe.Visible = false
 					argstable["Function"](list[1])
 				end
@@ -3359,7 +3367,8 @@ if shared.VapeExecuted then
 					drop2.MouseButton1Click:Connect(function()
 						hoverbox.TextSize = 15
 						dropGuiLibrary["Value"] = listobj
-						drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+						--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+						drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
 						dropframe.Visible = false
 						--children.CanvasSize = UDim2.new(0, 0, 0, uilistlayout2.AbsoluteContentSize.Y + (dropframe.Visible and #dropframe:GetChildren() * 12 or 0) + 10)
 						argstable["Function"](listobj)
@@ -3377,7 +3386,8 @@ if shared.VapeExecuted then
 			end
 			dropGuiLibrary["SetValue"] = function(listobj)
 				dropGuiLibrary["Value"] = listobj
-				drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+				--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+				drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
 				dropframe.Visible = false
 				argstable["Function"](listobj)
 				dropGuiLibrary["UpdateList"](list)
@@ -3403,7 +3413,8 @@ if shared.VapeExecuted then
 			local text1 = Instance.new("TextLabel")
 			text1.Font = Enum.Font.Arial
 			text1.TextXAlignment = Enum.TextXAlignment.Left
-			text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			text1.Size = UDim2.new(1, 0, 0, 25)
 			text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 			text1.Position = UDim2.new(0, 0, 0, 4)
@@ -3539,7 +3550,8 @@ if shared.VapeExecuted then
 			buttontext.AutoButtonColor = false
 			buttontext.BackgroundTransparency = 1
 			buttontext.Name = "ButtonText"
-			buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			buttontext.Name = argstable["Name"]
 			buttontext.LayoutOrder = amount
 			buttontext.Size = UDim2.new(1, 0, 0, 30)
@@ -4349,7 +4361,8 @@ if shared.VapeExecuted then
 					buttontext.AutoButtonColor = false
 					buttontext.BackgroundTransparency = 1
 					buttontext.Name = "ButtonText"
-					buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+					--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+					buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 					buttontext.Name = argstable["Name"]
 					buttontext.LayoutOrder = amount
 					buttontext.Size = UDim2.new(1, 0, 0, 30)
@@ -5047,7 +5060,8 @@ if shared.VapeExecuted then
 				drop1.TextSize = 14
 				drop1.TextXAlignment = Enum.TextXAlignment.Left
 				drop1.TextColor3 = Color3.fromRGB(160, 160, 160)
-				drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
+				--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
+				drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..(list ~= {} and list[1] or "")
 				drop1.TextTruncate = Enum.TextTruncate.AtEnd
 				drop1.Font = Enum.Font.Arial
 				local expandbutton2 = Instance.new("ImageLabel")
@@ -5153,7 +5167,8 @@ if shared.VapeExecuted then
 					dropGuiLibrary["List"] = val
 					if not table.find(list, dropGuiLibrary["Value"]) then
 						dropGuiLibrary["Value"] = list[1]
-						drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
+						--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
+						drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..list[1]
 						dropframe.Visible = false
 						argstable["Function"](list[1])
 					end
@@ -5162,7 +5177,8 @@ if shared.VapeExecuted then
 						if listobj == dropGuiLibrary["Value"] then continue end
 						local drop2 = Instance.new("TextButton")
 						dropframe.Size = UDim2.new(0, 198, 0, placeholder + 21)
-						drop2.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..listobj
+						--drop2.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..listobj
+						drop2.Text = listobj
 						drop2.LayoutOrder = numbe
 						drop2.TextColor3 = Color3.fromRGB(160, 160, 160)
 						drop2.AutoButtonColor = false
@@ -5179,7 +5195,8 @@ if shared.VapeExecuted then
 						drop2.Parent = dropframe
 						drop2.MouseButton1Click:Connect(function()
 							dropGuiLibrary["Value"] = listobj
-							drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+							--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+							drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
 							dropframe.Visible = false
 							local num = (uilistlayout2.AbsoluteContentSize.Y + (dropframe.Visible and #dropframe:GetChildren() * 9 or 0) + (40 * GuiLibrary["MainRescale"].Scale)) * (1 / GuiLibrary["MainRescale"].Scale)
 							frame.Size = UDim2.new(0, 220, 0, 40)
@@ -5194,7 +5211,8 @@ if shared.VapeExecuted then
 				end
 				dropGuiLibrary["SetValue"] = function(listobj)
 					dropGuiLibrary["Value"] = listobj
-					drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+					--drop1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
+					drop1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"]).." - "..listobj
 					dropframe.Visible = false
 					argstable["Function"](listobj)
 					dropGuiLibrary["UpdateList"](list)
@@ -5222,7 +5240,8 @@ if shared.VapeExecuted then
 				local text1 = Instance.new("TextLabel")
 				text1.Font = Enum.Font.Arial
 				text1.TextXAlignment = Enum.TextXAlignment.Left
-				text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 				text1.Size = UDim2.new(1, 0, 0, 27)
 				text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 				text1.BackgroundTransparency = 1
@@ -5411,7 +5430,8 @@ if shared.VapeExecuted then
 				local text1 = Instance.new("TextLabel")
 				text1.Font = Enum.Font.Arial
 				text1.TextXAlignment = Enum.TextXAlignment.Left
-				text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 				text1.Size = UDim2.new(1, 0, 0, 25)
 				text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 				text1.Position = UDim2.new(0, 0, 0, 4)
@@ -5715,7 +5735,8 @@ if shared.VapeExecuted then
 				buttontext.AutoButtonColor = false
 				buttontext.BackgroundTransparency = 1
 				buttontext.Name = "ButtonText"
-				buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+				buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 				buttontext.Name = argstable["Name"]
 				buttontext.LayoutOrder = amount
 				buttontext.Size = UDim2.new(1, 0, 0, 30)
@@ -6108,7 +6129,8 @@ if shared.VapeExecuted then
 			local text1 = Instance.new("TextLabel")
 			text1.Font = Enum.Font.Arial
 			text1.TextXAlignment = Enum.TextXAlignment.Left
-			text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--text1.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			text1.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			text1.Size = UDim2.new(1, 0, 0, 27)
 			text1.TextColor3 = Color3.fromRGB(160, 160, 160)
 			text1.Position = UDim2.new(0, 0, 0, 4)
@@ -6289,7 +6311,8 @@ if shared.VapeExecuted then
 			buttontext.AutoButtonColor = false
 			buttontext.BackgroundTransparency = 1
 			buttontext.Name = "ButtonText"
-			buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			--buttontext.Text = "â€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Šâ€Š"..(translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
+			buttontext.Text = (translations[argstable["Name"]] ~= nil and translations[argstable["Name"]] or argstable["Name"])
 			buttontext.Name = argstable["Name"]
 			buttontext.LayoutOrder = amount
 			buttontext.Size = UDim2.new(1, 0, 0, 30)
