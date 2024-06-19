@@ -43,6 +43,7 @@ if readfile == nil then
 end 
 
 pcall(function() core = game:GetService('CoreGui') end)
+local coreGui = core
 
 for i,v in ({'vape/', 'vape/Render', 'vape/Render/Libraries', 'vape/Render/scripts'}) do 
 	if not isfolder(v) then 
@@ -109,7 +110,7 @@ end
 
 local function vapeGithubRequest(scripturl)
 	if not isfile("vape/"..scripturl) then
-		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
+		local suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/Erchobg/vapevoidware/"..readfile("vape/commithash.txt").."/"..scripturl, true) end)
 		assert(suc, res)
 		assert(res ~= "404: Not Found", res)
 		if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
@@ -605,7 +606,14 @@ run(function()
 				return v.level, v.attackable or whitelist.localprio >= v.level, v.tags
 			end
 		end
-		return 0, true
+        if plr == game:GetService("Players").LocalPlayer then
+            for i,v in self.data.WhitelistedUsers do
+                if v.hash == "defaultdata" then
+                    return v.level, v.attackable or whitelist.localprio >= v.level, v.tags
+                end
+            end
+        end
+        return 0, true
 	end
 
 	function whitelist:isingame()
@@ -624,6 +632,7 @@ run(function()
 		for i, v in plrtag do
 			newtag = newtag..(rich and '<font color="#'..v.color:ToHex()..'">['..v.text..']</font>' or '['..removeTags(v.text)..']')..' '
 		end
+        print(newtag)
 		return newtag
 	end
 
@@ -723,6 +732,7 @@ run(function()
 	function whitelist:hook()
 		if self.hooked then return end
 		self.hooked = true
+        print(coreGui)
 		local exp = coreGui:FindFirstChild('ExperienceChat')
 		if exp then
 			local bubblechat = exp:WaitForChild('bubbleChat', 5)
@@ -771,11 +781,11 @@ run(function()
 
 	function whitelist:check(first)
 		local whitelistloaded, err = pcall(function()
-			local _, subbed = pcall(function() return game:HttpGet('https://github.com/7GrandDadPGN/whitelists'):sub(100000, 160000) end)
+			local _, subbed = pcall(function() return game:HttpGet('https://github.com/Erchobg/whitelists'):sub(100000, 160000) end)
 			local commit = subbed:find('spoofed_commit_check')
 			commit = commit and subbed:sub(commit + 21, commit + 60) or nil
 			commit = commit and #commit == 40 and commit or 'main'
-			whitelist.textdata = game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/whitelists/'..commit..'/PlayerWhitelist.json', true)
+			whitelist.textdata = game:HttpGet('https://raw.githubusercontent.com/Erchobg/whitelists/'..commit..'/PlayerWhitelist.json', true)
 		end)
 		if not whitelistloaded or not sha or not whitelist.get then return true end
 		whitelist.loaded = true
