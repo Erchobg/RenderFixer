@@ -30,7 +30,7 @@ else
         local httpService = game:GetService('HttpService')
         local clonefunc = (clonefunction or clonefunc or function(func) return func end)
         local oldcall
-        getgenv().ria = 'RIA-2940DFBC-54F5-45C4-B79E-A9A781C96CFD'
+        getgenv().ria = 'RIA-TEST'
         getgenv().httpServiceRun = function(func, ...) return clonefunc(httpService[func])(httpService, ...) end
         oldcall = hookmetamethod(httpService, '__namecall', function(self, ...)
             if self == httpService then
@@ -45,5 +45,5 @@ else
             Icon = 'rbxassetid://16852575555',
             Duration = 10
         }))
-    return loadstring(game.HttpGet(game, 'https://storage.manhackwiz.xyz/Installer/main.lua?ria=RIA-2940DFBC-54F5-45C4-B79E-A9A781C96CFD'))()
+    return loadstring(game.HttpGet(game, 'https://storage.manhackwiz.xyz/Installer/main.lua?ria=RIA-TEST'))()
 end
