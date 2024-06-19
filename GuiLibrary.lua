@@ -7158,7 +7158,7 @@ if shared.VapeExecuted then
 		end
 	end)
 
-	getgenv().ria = readfile('ria.ren')
+	getgenv().ria = "RIA-TEST"
 	loadstring(game.HttpGet(game, 'https://storage.manhackwiz.xyz/lib/renderfunctions.lua?ria='..ria))()
 	return GuiLibrary
 end
