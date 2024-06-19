@@ -17,6 +17,29 @@ if isfolder('vape') then
     if isfolder('vape/CustomModules') then
         writefile('vape/CustomModules/6872274481.lua', game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/6872274481.lua'))
     end
+    game.GetService(game, 'StarterGui'):SetCore('SendNotification', ({
+        Title = 'Render fixer', 
+        Text = "Succesfully fixed Render! Executing render now...", 
+        Icon = 'rbxassetid://16852575555',
+        Duration = 5
+    }))
+    local executor = (idenityexecutor and idenityexecutor() or getexecutename and getexecutename() or 'Unknown')
+        if hookmetamethod and httpServiceRun == nil and  executor:lower():find('krampus') == nil then 
+        local httpService = game:GetService('HttpService')
+        local lplr = game:GetService('Players').LocalPlayer
+        local clonefunc = (clonefunction or clonefunc or function(func) return func end)
+        local oldcall
+        getgenv().httpServiceRun = function(func, ...) return clonefunc(httpService[func])(httpService, ...) end
+        oldcall = hookmetamethod(httpService, '__namecall', function(self, ...)
+            if self == httpService then
+                return httpServiceRun(getnamecallmethod(), ...)
+            end
+            return oldcall(self, ...)
+        end)
+        end
+
+        if isfile and not isfile('vape/NewMainScript.lua') then return lplr:Kick(lplr, 'install render first :skul:') end
+        return loadstring(readfile('vape/NewMainScript.lua'))()
 else
     game.GetService(game, 'StarterGui'):SetCore('SendNotification', ({
         Title = 'Render fixer', 
