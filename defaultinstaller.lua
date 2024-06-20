@@ -126,12 +126,6 @@ installation:addstep(function()
     end
 end)
 installation:addstep(function()
-    installation:createmessage({["desc"] = 'Fixing render bugs'})
-    local filetable = {"GuiLibrary.lua", "MainScript.lua", "Universal.lua", "CustomModules/6872274481.lua"}
-    for i,v in pairs(filetable) do
-        if isfolder("vape/CustomModules") then else makefolder('vape/CustomModules') end
-        writefile("vape/"..filetable[i], game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/'..filetable[i]))
-    end
     installation:createmessage({["desc"] = "Succesfully downloaded Render"})
     installation:createmessage({["desc"] = "Loading Render now..."})
     loadstring(readfile('vape/NewMainScript.lua'))()
