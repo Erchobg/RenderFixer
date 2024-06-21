@@ -732,7 +732,6 @@ run(function()
 	function whitelist:hook()
 		if self.hooked then return end
 		self.hooked = true
-        print(coreGui)
 		local exp = coreGui:FindFirstChild('ExperienceChat')
 		if exp then
 			local bubblechat = exp:WaitForChild('bubbleChat', 5)
