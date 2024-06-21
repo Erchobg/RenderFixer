@@ -2382,7 +2382,7 @@ run(function()
 	})
 end)
 
-local autobankballoon = false
+local autobankapple = false
 run(function()
 	local AutoBuy = {Enabled = false}
 	local AutoBuyArmor = {Enabled = false}
@@ -2405,40 +2405,40 @@ run(function()
 	local bedwarsshopnpcs = {}
 	local id
 	local armors = {
-		[1] = 'leather_chestplate',
-		[2] = 'iron_chestplate',
-		[3] = 'diamond_chestplate',
-		[4] = 'emerald_chestplate'
+		[1] = "leather_chestplate",
+		[2] = "iron_chestplate",
+		[3] = "diamond_chestplate",
+		[4] = "emerald_chestplate"
 	}
 
 	local swords = {
-		[1] = 'wood_sword',
-		[2] = 'stone_sword',
-		[3] = 'iron_sword',
-		[4] = 'diamond_sword',
-		[5] = 'emerald_sword'
+		[1] = "wood_sword",
+		[2] = "stone_sword",
+		[3] = "iron_sword",
+		[4] = "diamond_sword",
+		[5] = "emerald_sword"
 	}
 
 	local axes = {
-		[1] = 'wood_axe',
-		[2] = 'stone_axe',
-		[3] = 'iron_axe',
-		[4] = 'diamond_axe'
+		[1] = "wood_axe",
+		[2] = "stone_axe",
+		[3] = "iron_axe",
+		[4] = "diamond_axe"
 	}
 
 	local pickaxes = {
-		[1] = 'wood_pickaxe',
-		[2] = 'stone_pickaxe',
-		[3] = 'iron_pickaxe',
-		[4] = 'diamond_pickaxe'
+		[1] = "wood_pickaxe",
+		[2] = "stone_pickaxe",
+		[3] = "iron_pickaxe",
+		[4] = "diamond_pickaxe"
 	}
 
 	task.spawn(function()
 		repeat task.wait() until bedwarsStore.matchState ~= 0 or not vapeInjected
-		for i,v in pairs(collectionService:GetTagged('BedwarsItemShop')) do
+		for i,v in pairs(collectionService:GetTagged("BedwarsItemShop")) do
 			table.insert(bedwarsshopnpcs, {Position = v.Position, TeamUpgradeNPC = true, Id = v.Name})
 		end
-		for i,v in pairs(collectionService:GetTagged('TeamUpgradeShopkeeper')) do
+		for i,v in pairs(collectionService:GetTagged("TeamUpgradeShopkeeper")) do
 			table.insert(bedwarsshopnpcs, {Position = v.Position, TeamUpgradeNPC = false, Id = v.Name})
 		end
 	end)
@@ -2447,15 +2447,15 @@ run(function()
 		local npc, npccheck, enchant, newid = nil, false, false, nil
 		if entityLibrary.isAlive then
 			local enchanttab = {}
-			for i,v in pairs(collectionService:GetTagged('broken-enchant-table')) do
+			for i,v in pairs(collectionService:GetTagged("broken-enchant-table")) do
 				table.insert(enchanttab, v)
 			end
-			for i,v in pairs(collectionService:GetTagged('enchant-table')) do
+			for i,v in pairs(collectionService:GetTagged("enchant-table")) do
 				table.insert(enchanttab, v)
 			end
 			for i,v in pairs(enchanttab) do
 				if ((entityLibrary.LocalPosition or entityLibrary.character.HumanoidRootPart.Position) - v.Position).magnitude <= 6 then
-					if ((not v:GetAttribute('Team')) or v:GetAttribute('Team') == lplr:GetAttribute('Team')) then
+					if ((not v:GetAttribute("Team")) or v:GetAttribute("Team") == lplr:GetAttribute("Team")) then
 						npc, npccheck, enchant = true, true, true
 					end
 				end
@@ -2466,8 +2466,8 @@ run(function()
 					newid = v.TeamUpgradeNPC and v.Id or newid
 				end
 			end
-			local suc, res = pcall(function() return lplr.leaderstats.Bed.Value == '✅'  end)
-			if AutoBankDeath.Enabled and (workspace:GetServerTimeNow() - lplr.Character:GetAttribute('LastDamageTakenTime')) < 2 and suc and res then
+			local suc, res = pcall(function() return lplr.leaderstats.Bed.Value == "✅"  end)
+			if AutoBankDeath.Enabled and (workspace:GetServerTimeNow() - lplr.Character:GetAttribute("LastDamageTakenTime")) < 2 and suc and res then
 				return nil, false, false
 			end
 			if AutoBankStay.Enabled then
@@ -2480,14 +2480,14 @@ run(function()
 	local function buyItem(itemtab, waitdelay)
 		if not id then return end
 		local res
-		bedwars.Client:Get('BedwarsPurchaseItem'):CallServerAsync({
+		bedwars.ClientHandler:Get("BedwarsPurchaseItem"):CallServerAsync({
 			shopItem = itemtab,
 			shopId = id
 		}):andThen(function(p11)
 			if p11 then
 				bedwars.SoundManager:playSound(bedwars.SoundList.BEDWARS_PURCHASE_ITEM)
 				bedwars.ClientStoreHandler:dispatch({
-					type = 'BedwarsAddItemPurchased',
+					type = "BedwarsAddItemPurchased",
 					itemType = itemtab.itemType
 				})
 			end
@@ -2499,8 +2499,8 @@ run(function()
 	end
 
 	local function getAxeNear(inv)
-		for i5, v5 in pairs(inv or store.localInventory.inventory.items) do
-			if v5.itemType:find('axe') and v5.itemType:find('pickaxe') == nil then
+		for i5, v5 in pairs(inv or bedwarsStore.localInventory.inventory.items) do
+			if v5.itemType:find("axe") and v5.itemType:find("pickaxe") == nil then
 				return v5.itemType
 			end
 		end
@@ -2508,8 +2508,8 @@ run(function()
 	end
 
 	local function getPickaxeNear(inv)
-		for i5, v5 in pairs(inv or store.localInventory.inventory.items) do
-			if v5.itemType:find('pickaxe') then
+		for i5, v5 in pairs(inv or bedwarsStore.localInventory.inventory.items) do
+			if v5.itemType:find("pickaxe") then
 				return v5.itemType
 			end
 		end
@@ -2517,12 +2517,12 @@ run(function()
 	end
 
 	local function getShopItem(itemType)
-		if itemType == 'axe' then
-			itemType = getAxeNear() or 'wood_axe'
+		if itemType == "axe" then
+			itemType = getAxeNear() or "wood_axe"
 			itemType = axes[table.find(axes, itemType) + 1] or itemType
 		end
-		if itemType == 'pickaxe' then
-			itemType = getPickaxeNear() or 'wood_pickaxe'
+		if itemType == "pickaxe" then
+			itemType = getPickaxeNear() or "wood_pickaxe"
 			itemType = pickaxes[table.find(pickaxes, itemType) + 1] or itemType
 		end
 		for i,v in pairs(bedwars.ShopItems) do
@@ -2533,8 +2533,8 @@ run(function()
 
 	local buyfunctions = {
 		Armor = function(inv, upgrades, shoptype)
-			if AutoBuyArmor.Enabled == false or shoptype ~= 'item' then return end
-			local currentarmor = (inv.armor[2] ~= 'empty' and inv.armor[2].itemType:find('chestplate') ~= nil) and inv.armor[2] or nil
+			if AutoBuyArmor.Enabled == false or shoptype ~= "item" then return end
+			local currentarmor = (inv.armor[2] ~= "empty" and inv.armor[2].itemType:find("chestplate") ~= nil) and inv.armor[2] or nil
 			local armorindex = (currentarmor and table.find(armors, currentarmor.itemType) or 0) + 1
 			if armors[armorindex] == nil then return end
 			local highestbuyable = nil
@@ -2545,19 +2545,19 @@ run(function()
 					if currency and currency.amount >= shopitem.price then
 						highestbuyable = shopitem
 						bedwars.ClientStoreHandler:dispatch({
-							type = 'BedwarsAddItemPurchased',
+							type = "BedwarsAddItemPurchased",
 							itemType = shopitem.itemType
 						})
 					end
 				end
 			end
-			if highestbuyable and (highestbuyable.ignoredByKit == nil or table.find(highestbuyable.ignoredByKit, store.equippedKit) == nil) then
+			if highestbuyable and (highestbuyable.ignoredByKit == nil or table.find(highestbuyable.ignoredByKit, bedwarsStore.equippedKit) == nil) then
 				buyItem(highestbuyable)
 			end
 		end,
 		Sword = function(inv, upgrades, shoptype)
-			if AutoBuySword.Enabled == false or shoptype ~= 'item' then return end
-			local currentsword = getItemNear('sword', inv.items)
+			if AutoBuySword.Enabled == false or shoptype ~= "item" then return end
+			local currentsword = getItemNear("sword", inv.items)
 			local swordindex = (currentsword and table.find(swords, currentsword.itemType) or 0) + 1
 			if currentsword ~= nil and table.find(swords, currentsword.itemType) == nil then return end
 			local highestbuyable = nil
@@ -2565,115 +2565,117 @@ run(function()
 				local shopitem = getShopItem(swords[i])
 				if shopitem and i == swordindex then
 					local currency = getItem(shopitem.currency, inv.items)
-					if currency and currency.amount >= shopitem.price and (shopitem.category ~= 'Armory' or upgrades.armory) then
+					if currency and currency.amount >= shopitem.price and (shopitem.category ~= "Armory" or upgrades.armory) then
 						highestbuyable = shopitem
 						bedwars.ClientStoreHandler:dispatch({
-							type = 'BedwarsAddItemPurchased',
+							type = "BedwarsAddItemPurchased",
 							itemType = shopitem.itemType
 						})
 					end
 				end
 			end
-			if highestbuyable and (highestbuyable.ignoredByKit == nil or table.find(highestbuyable.ignoredByKit, store.equippedKit) == nil) then
+			if highestbuyable and (highestbuyable.ignoredByKit == nil or table.find(highestbuyable.ignoredByKit, bedwarsStore.equippedKit) == nil) then
 				buyItem(highestbuyable)
 			end
 		end
 	}
 
 	AutoBuy = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
-		Name = 'AutoBuy',
+		Name = "AutoBuy",
 		Function = function(callback)
 			if callback then
 				buyingthing = false
-				repeat
-					task.wait()
-					local found, npctype, enchant, newid = nearNPC(AutoBuyRange.Value)
-					id = newid
-					if found then
-						local inv = store.localInventory.inventory
-						local currentupgrades = bedwars.ClientStoreHandler:getState().Bedwars.teamUpgrades
-						if store.equippedKit == 'dasher' then
-							swords = {
-								[1] = 'wood_dao',
-								[2] = 'stone_dao',
-								[3] = 'iron_dao',
-								[4] = 'diamond_dao',
-								[5] = 'emerald_dao'
-							}
-						elseif store.equippedKit == 'ice_queen' then
-							swords[5] = 'ice_sword'
-						elseif store.equippedKit == 'ember' then
-							swords[5] = 'infernal_saber'
-						elseif store.equippedKit == 'lumen' then
-							swords[5] = 'light_sword'
-						end
-						if (AutoBuyGui.Enabled == false or (bedwars.AppController:isAppOpen('BedwarsItemShopApp') or bedwars.AppController:isAppOpen('BedwarsTeamUpgradeApp'))) and (not enchant) then
-							for i,v in pairs(AutoBuyCustom.ObjectList) do
-								local autobuyitem = v:split('/')
-								if #autobuyitem >= 3 and autobuyitem[4] ~= 'true' then
-									local shopitem = getShopItem(autobuyitem[1])
-									if shopitem then
-										local currency = getItem(shopitem.currency, inv.items)
-										local actualitem = getItem(shopitem.itemType == 'wool_white' and getWool() or shopitem.itemType, inv.items)
-										if currency and currency.amount >= shopitem.price and (actualitem == nil or actualitem.amount < tonumber(autobuyitem[2])) then
-											buyItem(shopitem, tonumber(autobuyitem[2]) > 1)
+				task.spawn(function()
+					repeat
+						task.wait()
+						local found, npctype, enchant, newid = nearNPC(AutoBuyRange.Value)
+						id = newid
+						if found then
+							local inv = bedwarsStore.localInventory.inventory
+							local currentupgrades = bedwars.ClientStoreHandler:getState().Bedwars.teamUpgrades
+							if bedwarsStore.equippedKit == "dasher" then
+								swords = {
+									[1] = "wood_dao",
+									[2] = "stone_dao",
+									[3] = "iron_dao",
+									[4] = "diamond_dao",
+									[5] = "emerald_dao"
+								}
+							elseif bedwarsStore.equippedKit == "ice_queen" then
+								swords[5] = "ice_sword"
+							elseif bedwarsStore.equippedKit == "ember" then
+								swords[5] = "infernal_saber"
+							elseif bedwarsStore.equippedKit == "lumen" then
+								swords[5] = "light_sword"
+							end
+							if (AutoBuyGui.Enabled == false or (bedwars.AppController:isAppOpen("BedwarsItemShopApp") or bedwars.AppController:isAppOpen("BedwarsTeamUpgradeApp"))) and (not enchant) then
+								for i,v in pairs(AutoBuyCustom.ObjectList) do
+									local autobuyitem = v:split("/")
+									if #autobuyitem >= 3 and autobuyitem[4] ~= "true" then
+										local shopitem = getShopItem(autobuyitem[1])
+										if shopitem then
+											local currency = getItem(shopitem.currency, inv.items)
+											local actualitem = getItem(shopitem.itemType == "wool_white" and getWool() or shopitem.itemType, inv.items)
+											if currency and currency.amount >= shopitem.price and (actualitem == nil or actualitem.amount < tonumber(autobuyitem[2])) then
+												buyItem(shopitem, tonumber(autobuyitem[2]) > 1)
+											end
+										end
+									end
+								end
+								for i,v in pairs(buyfunctions) do v(inv, currentupgrades, npctype and "upgrade" or "item") end
+								for i,v in pairs(AutoBuyCustom.ObjectList) do
+									local autobuyitem = v:split("/")
+									if #autobuyitem >= 3 and autobuyitem[4] == "true" then
+										local shopitem = getShopItem(autobuyitem[1])
+										if shopitem then
+											local currency = getItem(shopitem.currency, inv.items)
+											local actualitem = getItem(shopitem.itemType == "wool_white" and getWool() or shopitem.itemType, inv.items)
+											if currency and currency.amount >= shopitem.price and (actualitem == nil or actualitem.amount < tonumber(autobuyitem[2])) then
+												buyItem(shopitem, tonumber(autobuyitem[2]) > 1)
+											end
 										end
 									end
 								end
 							end
-							for i,v in pairs(buyfunctions) do v(inv, currentupgrades, npctype and 'upgrade' or 'item') end
-							for i,v in pairs(AutoBuyCustom.ObjectList) do
-								local autobuyitem = v:split('/')
-								if #autobuyitem >= 3 and autobuyitem[4] == 'true' then
-									local shopitem = getShopItem(autobuyitem[1])
-									if shopitem then
-										local currency = getItem(shopitem.currency, inv.items)
-										local actualitem = getItem(shopitem.itemType == 'wool_white' and getWool() or shopitem.itemType, inv.items)
-										if currency and currency.amount >= shopitem.price and (actualitem == nil or actualitem.amount < tonumber(autobuyitem[2])) then
-											buyItem(shopitem, tonumber(autobuyitem[2]) > 1)
-										end
-									end
-								end
-							end
 						end
-					end
-				until (not AutoBuy.Enabled)
+					until (not AutoBuy.Enabled)
+				end)
 			end
 		end,
-		HoverText = 'Automatically Buys Swords, Armor, and Team Upgrades\nwhen you walk near the NPC'
+		HoverText = "Automatically Buys Swords, Armor, and Team Upgrades\nwhen you walk near the NPC"
 	})
 	AutoBuyRange = AutoBuy.CreateSlider({
-		Name = 'Range',
+		Name = "Range",
 		Function = function() end,
 		Min = 1,
 		Max = 20,
 		Default = 20
 	})
 	AutoBuyArmor = AutoBuy.CreateToggle({
-		Name = 'Buy Armor',
+		Name = "Buy Armor",
 		Function = function() end,
 		Default = true
 	})
 	AutoBuySword = AutoBuy.CreateToggle({
-		Name = 'Buy Sword',
+		Name = "Buy Sword",
 		Function = function() end,
 		Default = true
 	})
 	AutoBuyGui = AutoBuy.CreateToggle({
-		Name = 'Shop GUI Check',
+		Name = "Shop GUI Check",
 		Function = function() end,
 	})
 	AutoBuyTierSkip = AutoBuy.CreateToggle({
-		Name = 'Tier Skip',
+		Name = "Tier Skip",
 		Function = function() end,
 		Default = true
 	})
 	AutoBuyCustom = AutoBuy.CreateTextList({
-		Name = 'BuyList',
-		TempText = 'item/amount/priority/after',
+		Name = "BuyList",
+		TempText = "item/amount/priority/after",
 		SortFunction = function(a, b)
-			local amount1 = a:split('/')
-			local amount2 = b:split('/')
+			local amount1 = a:split("/")
+			local amount2 = b:split("/")
 			amount1 = #amount1 and tonumber(amount1[3]) or 1
 			amount2 = #amount2 and tonumber(amount2[3]) or 1
 			return amount1 < amount2
