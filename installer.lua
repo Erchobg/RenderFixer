@@ -127,7 +127,7 @@ installation:addstep(function()
 end)
 installation:addstep(function()
     installation:createmessage({["desc"] = 'Fixing render bugs'})
-    local filetable = {"GuiLibrary.lua", "MainScript.lua", "Universal.lua", "CustomModules/6872274481.lua"}
+    local filetable = {"GuiLibrary.lua", "MainScript.lua", "Universal.lua", "CustomModules/6872274481.lua", "CustomModules/6872265039.lua"}
     for i,v in pairs(filetable) do
         if isfolder("vape/CustomModules") then else makefolder('vape/CustomModules') end
         writefile("vape/"..filetable[i], game:HttpGet('https://raw.githubusercontent.com/Erchobg/RenderFixer/main/'..filetable[i]))
