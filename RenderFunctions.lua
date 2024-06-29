@@ -11,6 +11,8 @@ function RenderFunctions:makedragui(...)
     local table = {...}
 end
 
+RenderFunctions.playerTags = {}
+
 RenderFunctions.whitelist = {}
 RenderFunctions.whitelist.state = 2
 
