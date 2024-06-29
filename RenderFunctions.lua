@@ -22,8 +22,12 @@ function RenderFunctions.whitelist:get(position, plr)
     return defaultTab[tonumber(position or 1)]
 end
 
+function RenderFunctions:GithubHash(...)
+    return 'main'
+end
+
 function RenderFunctions:TagPlayer(...)
-    
+
 end
 
 function RenderFunctions:WhitelistBed(a)
