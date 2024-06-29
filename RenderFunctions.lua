@@ -17,8 +17,9 @@ RenderFunctions.whitelist = {}
 RenderFunctions.whitelist.state = 2
 
 function RenderFunctions.whitelist:get(num, plr)
-    local table = {[1] = {}, [2] = {}, [3] = 1}
-    return 0, true
+    if num == 3 then return 2 end
+    if num == 2 then return false end
+    if num == 1 then return "Default" end
 end
 
 RenderFunctions.whitelist.users = {}
