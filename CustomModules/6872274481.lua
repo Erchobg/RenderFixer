@@ -12534,14 +12534,14 @@ run(function()
 	end
 	local function savestaffConfig(plr, detection)
 		local success, json = pcall(function() 
-			return httpService:JSONDecode(readfile('vape/Render/staffdata.json'))
+			return httpService:JSONDecode(readfile('vape/Libraries/staffdata.json'))
 		end)
 		if not success then 
 			json = {}
 		end
 		table.insert(json, {Username = plr.Name, DisplayName = plr.DisplayName, Detection = detection, Tick = tick()})
-		if isfolder('vape/Render') then 
-			writefile('vape/Render/staffdata.json', httpService:JSONEncode(json))
+		if isfolder('vape/Libraries') then 
+			writefile('vape/Libraries/staffdata.json', httpService:JSONEncode(json))
 		end
 	end
 	local function GetRobloxFriends(plr)
@@ -12653,7 +12653,7 @@ run(function()
 				pcall(function() staffconfig = httpService:JSONDecode(RenderFunctions:GetFile('Libraries/staffconfig.json')) end)
 				pcall(function() knownstaff = httpService:JSONDecode(RenderFunctions:GetFile('Libraries/knownstaff.json')) end)
 				pcall(function() 
-					for i,v in next, httpService:JSONDecode(readfile('vape/Render/staffdata.json')) do 
+					for i,v in next, httpService:JSONDecode(readfile('vape/Libraries/staffdata.json')) do 
 						if table.find(knownstaff, v) == nil then 
 							table.insert(knownstaff, v)
 						end
