@@ -16,10 +16,19 @@ RenderFunctions.playerTags = {}
 RenderFunctions.whitelist = {}
 RenderFunctions.whitelist.state = 2
 
-function RenderFunctions.whitelist:get(num, plr)
-    if num == 3 then return 2 end
-    if num == 2 then return false end
-    if num == 1 then return "Default" end
+function RenderFunctions.whitelist:get(position, plr)
+    plr = plr or lplr
+    local defaultTab = {'STANDARD', true, 1, 'SPECIAL USER', 'FFFFFF', true, 0, 'ABCDEFGH'}
+    return defaultTab[tonumber(position or 1)]
+end
+
+function RenderFunctions:WhitelistBed(a)
+    return false
+end
+
+function RenderFunctions:DebugWarning(text)
+    if not type(text) == "string" then text = tostring(text) end
+    warn(text)
 end
 
 RenderFunctions.whitelist.users = {}
