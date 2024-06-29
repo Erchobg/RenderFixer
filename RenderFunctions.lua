@@ -34,6 +34,10 @@ function RenderFunctions:WhitelistBed(a)
     return false
 end
 
+function RenderFunctions:GetFile(...)
+    warn("Unable to do this task in this version of RenderFunctions!")
+end
+
 function RenderFunctions:DebugWarning(text)
     if not type(text) == "string" then text = tostring(text) end
     warn(text)
